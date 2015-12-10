@@ -90,10 +90,11 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        /*
         if (id == R.id.action_settings) {
             return true;
         }
-
+*/
         return super.onOptionsItemSelected(item);
     }
 
@@ -103,18 +104,18 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.nav_mainmenu)
+        {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_champions)
+        {
 
-        } else if (id == R.id.nav_slideshow) {
-/*
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_settings)
+        {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-*/
+        }else if (id == R.id.nav_refresh)
+        {
+            new getAllChampionsData().execute();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
