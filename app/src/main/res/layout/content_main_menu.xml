@@ -10,5 +10,6 @@
     tools:showIn="@layout/app_bar_main_menu" tools:context=".MainMenuActivity">
 
     <TextView android:text="Hello World!" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/tvRotacion" />
 </RelativeLayout>

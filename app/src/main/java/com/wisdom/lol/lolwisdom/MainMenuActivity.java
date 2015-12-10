@@ -19,11 +19,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -60,6 +62,10 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
+
+        new getFreeRotation().execute("euw", "es");
 
         //new getAllChampionsData().execute();
 
@@ -132,7 +138,6 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         {
             super.onProgressUpdate(msg);
             progressDialog.setMessage("Invocando a " + msg[0]);
-
         }
 
         @Override
@@ -162,9 +167,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
             progressDialog.setMax(championList.size());
 
-            // Reset Database
-            BD_LOLUniversity bd_lolUniversity = new BD_LOLUniversity(getApplicationContext());
-            bd_lolUniversity.resetDatabase();
+
 
             for (Element e:championList)
             {
@@ -203,6 +206,10 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
                         chamopionList.add(e);
                     }
                 }
+                // Reset Database
+                BD_LOLUniversity bd_lolUniversity = new BD_LOLUniversity(getApplicationContext());
+                bd_lolUniversity.resetDatabase();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -428,6 +435,63 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
                 Log.e("SKINIMG", "IMGSKIN: " + src);
                 bd_lolUniversity.addSkin(skin);
             }
+        }
+    }
+
+    private class getFreeRotation extends AsyncTask<String, Void, Boolean>
+    {
+        String labelRotacion = "";
+
+        @Override
+        protected Boolean doInBackground(String... params)
+        {
+            Document doc;
+            String region = params[0];
+            String idioma = params[1];
+            String urlRotationsList = "http://"+region+".leagueoflegends.com/"+idioma+"/news/champions-skins/free-rotation/";
+
+            try
+            {
+                doc = Jsoup.connect(urlRotationsList).get();
+
+                labelRotacion = doc.select("h1").first().text();
+                Element lastFreeRotation = doc.select("h4").first().select("a").first();
+
+                String relativeUrl = lastFreeRotation.attr("href");
+
+                String urlLastRotation = "http://"+region+".leagueoflegends.com"+relativeUrl;
+                doc = Jsoup.connect(urlLastRotation).get();
+
+                Elements championsInRotation = doc.select("span[class=champion-name]");
+
+                for (Element e:  championsInRotation)
+                {
+                    Log.e("Rotation", "Rotacion: " + e.text());
+                }
+                return true;
+
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Boolean done)
+        {
+            super.onPostExecute(done);
+
+            if (done)
+            {
+                TextView tvLabelRotacion = (TextView) findViewById(R.id.tvRotacion);
+                tvLabelRotacion.setText(labelRotacion);
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), "No se ha podido conectar con el servidor", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 
