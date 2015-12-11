@@ -31,6 +31,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 
 import com.wisdom.lol.lolwisdom.model.BD_LOLUniversity;
 import com.wisdom.lol.lolwisdom.model.Champion;
@@ -41,6 +42,9 @@ import com.wisdom.lol.lolwisdom.model.Skin;
 public class MainMenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
     ProgressDialog progressDialog;
+    ArrayList<Champion> freeRotationChamps = new ArrayList<>();
+
+
     int progress=0;
 
     // Comentario de Prueba
@@ -441,6 +445,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
     private class getFreeRotation extends AsyncTask<String, Void, Boolean>
     {
         String labelRotacion = "";
+        BD_LOLUniversity bdrotation = new BD_LOLUniversity(getApplicationContext());
 
         @Override
         protected Boolean doInBackground(String... params)
@@ -466,7 +471,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
                 for (Element e:  championsInRotation)
                 {
-                    Log.e("Rotation", "Rotacion: " + e.text());
+                    freeRotationChamps.add(bdrotation.getChampionByName(e.text()));
                 }
                 return true;
 
@@ -480,7 +485,28 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         @Override
         protected void onPostExecute(Boolean done)
         {
+            ImageView[]array_iv = new ImageView[10];
+
+            array_iv[0]= (ImageView)findViewById(R.id.imageView1);
+            array_iv[1]= (ImageView)findViewById(R.id.imageView2);
+            array_iv[2]= (ImageView)findViewById(R.id.imageView3);
+            array_iv[3]= (ImageView)findViewById(R.id.imageView4);
+            array_iv[4]= (ImageView)findViewById(R.id.imageView5);
+            array_iv[5]= (ImageView)findViewById(R.id.imageView6);
+            array_iv[6]= (ImageView)findViewById(R.id.imageView7);
+            array_iv[7]= (ImageView)findViewById(R.id.imageView8);
+            array_iv[8]= (ImageView)findViewById(R.id.imageView9);
+            array_iv[9]= (ImageView)findViewById(R.id.imageView10);
+
             super.onPostExecute(done);
+
+            int i=0;
+            for(Champion champ: freeRotationChamps){
+
+                array_iv[i].setImageBitmap(byteArrayToBitmap(champ.getImg()));
+                i++;
+
+            }
 
             if (done)
             {

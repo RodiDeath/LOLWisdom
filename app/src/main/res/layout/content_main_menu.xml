@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -7,9 +7,133 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_main_menu" tools:context=".MainMenuActivity">
+    tools:showIn="@layout/app_bar_main_menu" tools:context=".MainMenuActivity"
+    android:background="#09191d"
+    android:orientation="vertical">
 
-    <TextView android:text="Hello World!" android:layout_width="wrap_content"
+    <TextView android:text="Free Rotation" android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tvRotacion" />
-</RelativeLayout>
+        android:id="@+id/tvRotacion"
+        android:hapticFeedbackEnabled="false"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#123b43"
+        android:layout_gravity="center_horizontal">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView1"
+                android:layout_column="0"
+                android:src="@drawable/icon_ahri"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView2"
+                android:layout_column="1"
+                android:src="@drawable/icon_ahri"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView3"
+                android:layout_column="2"
+                android:src="@drawable/icon_ahri"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView4"
+                android:layout_column="3"
+                android:src="@drawable/icon_ahri"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView5"
+                android:layout_column="4"
+                android:src="@drawable/icon_ahri"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView6"
+                android:layout_column="0"
+                android:src="@drawable/icon_ahri"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView7"
+                android:layout_column="1"
+                android:src="@drawable/icon_ahri"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView8"
+                android:layout_column="2"
+                android:src="@drawable/icon_ahri"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView9"
+                android:layout_column="3"
+                android:src="@drawable/icon_ahri"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView10"
+                android:layout_column="4"
+                android:src="@drawable/icon_ahri"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

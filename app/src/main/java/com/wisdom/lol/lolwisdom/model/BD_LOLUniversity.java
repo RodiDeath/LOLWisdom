@@ -3,6 +3,7 @@ package com.wisdom.lol.lolwisdom.model;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -204,6 +205,51 @@ public class BD_LOLUniversity extends SQLiteOpenHelper
         db.close();
     }
 
+    public Champion getChampionByName(String champName){
+
+        if(champName.contains("'")) {
+            champName = champName.replaceAll("'","''");
+        }
+        String consulta = "SELECT * FROM " + TABLE_CHAMPIONS + " WHERE " + COLUMN_NAME + " = '" + champName + "';";
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(consulta, null);
+
+        if (cursor.moveToFirst()) {
+
+            Champion champ = new Champion();
+
+            // DESRIPTION
+            champ.setId(cursor.getInt(cursor.getColumnIndex(COLUMN_ID)));
+            champ.setLore(cursor.getString(cursor.getColumnIndex(COLUMN_LORE)));
+            champ.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
+            champ.setRegion(cursor.getString(cursor.getColumnIndex(COLUMN_REGION)));
+            champ.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
+            champ.setTips(cursor.getString(cursor.getColumnIndex(COLUMN_TIPS)));
+            champ.setImg(cursor.getBlob(cursor.getColumnIndex(COLUMN_IMG)));
+            // STATS
+            champ.setHp(cursor.getString(cursor.getColumnIndex(COLUMN_HP)));
+            champ.setMp(cursor.getString(cursor.getColumnIndex(COLUMN_MP)));
+            champ.setAd(cursor.getString(cursor.getColumnIndex(COLUMN_AD)));
+            champ.setAp(cursor.getString(cursor.getColumnIndex(COLUMN_AP)));
+            champ.setAspd(cursor.getString(cursor.getColumnIndex(COLUMN_ASPD)));
+            champ.setMovspeed(cursor.getString(cursor.getColumnIndex(COLUMN_MOVSPEED)));
+            champ.setHpregen(cursor.getString(cursor.getColumnIndex(COLUMN_HPREGEN)));
+            champ.setMpregen(cursor.getString(cursor.getColumnIndex(COLUMN_MPREGEN)));
+            champ.setArmor(cursor.getString(cursor.getColumnIndex(COLUMN_ARMOR)));
+            champ.setMr(cursor.getString(cursor.getColumnIndex(COLUMN_MR)));
+            champ.setCritstrike(cursor.getString(cursor.getColumnIndex(COLUMN_CRITSTRIKE)));
+            champ.setLs(cursor.getString(cursor.getColumnIndex(COLUMN_LS)));
+            champ.setCdr(cursor.getString(cursor.getColumnIndex(COLUMN_CDR)));
+
+            return champ;
+        }else{
+
+            return null;
+        }
+
+    }
     public ArrayList<Champion> getChampions()
     {
         ArrayList<Champion> champions = new ArrayList<>();
