@@ -36,6 +36,7 @@ public class PatchNotesActivity extends AppCompatActivity {
         wvPatchnotes  = (WebView)findViewById(R.id.webViewPatchNotes);
 
         wvPatchnotes.getSettings().setJavaScriptEnabled(true); // enable javascript
+        wvPatchnotes.getSettings().setBuiltInZoomControls(true);
 
         new getPatchNotes().execute("euw","es");
 
