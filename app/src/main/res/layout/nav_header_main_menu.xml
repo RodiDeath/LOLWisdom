@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:src="@drawable/background_header_drawer_ahri"
+        android:src="@drawable/background_header_drawer_ahri_small"
         android:scaleType="centerCrop" />
 </LinearLayout>

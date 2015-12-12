@@ -31,109 +31,126 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
+            android:padding="3dp">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView1"
                 android:layout_column="0"
-                android:src="@drawable/icon_ahri"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView2"
                 android:layout_column="1"
-                android:src="@drawable/icon_ahri"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView3"
                 android:layout_column="2"
-                android:src="@drawable/icon_ahri"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView4"
                 android:layout_column="3"
-                android:src="@drawable/icon_ahri"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView5"
                 android:layout_column="4"
-                android:src="@drawable/icon_ahri"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="5dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
+            android:padding="3dp">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView6"
                 android:layout_column="0"
-                android:src="@drawable/icon_ahri"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView7"
                 android:layout_column="1"
-                android:src="@drawable/icon_ahri"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView8"
                 android:layout_column="2"
-                android:src="@drawable/icon_ahri"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView9"
                 android:layout_column="3"
-                android:src="@drawable/icon_ahri"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/imageView10"
                 android:layout_column="4"
-                android:src="@drawable/icon_ahri"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp" />
+                android:src="@drawable/icon_ahri_bn"
+                android:padding="3dp" />
         </TableRow>
     </TableLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:padding="10dp"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="85dp"
+            android:text="Champions"
+            android:id="@+id/bt_champions"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:theme="@style/Animation.AppCompat.DropDownUp" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="85dp"
+            android:text="Patch Notes"
+            android:id="@+id/button2"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorAccent"
+            android:background="@color/colorPrimary"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 </LinearLayout>
