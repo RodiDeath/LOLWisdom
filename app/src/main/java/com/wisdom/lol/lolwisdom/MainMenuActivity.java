@@ -141,6 +141,12 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         startActivity(intent);
     }
 
+    public void patchNotesClicked(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(), PatchNotesActivity.class);
+        startActivity(intent);
+    }
+
     private class getAllChampionsData extends AsyncTask<Void, String, String>
     {
         String content;
