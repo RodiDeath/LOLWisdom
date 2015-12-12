@@ -1,6 +1,7 @@
 package com.wisdom.lol.lolwisdom;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -120,6 +121,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         } else if (id == R.id.nav_champions)
         {
 
+            Intent intent = new Intent(getApplicationContext(), ChampionDataActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_settings)
         {
 
