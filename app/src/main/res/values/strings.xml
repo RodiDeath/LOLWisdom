@@ -5,11 +5,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_champion_data">ChampionDataActivity</string>
+    <string name="title_activity_champion_data">Campeon</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_skill_data">SkillDataActivity</string>
-    <string name="title_activity_skin_data">SkinDataActivity</string>
-    <string name="title_activity_champion_list">ChampionListActivity</string>
-    <string name="title_activity_patch_notes">PatchNotesActivity</string>
+    <string name="title_activity_skill_data">Skills</string>
+    <string name="title_activity_skin_data">Skins</string>
+    <string name="title_activity_champion_list">Lista de Campeones</string>
+    <string name="title_activity_patch_notes">Notas del Parche</string>
 </resources>

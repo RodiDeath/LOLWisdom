@@ -135,6 +135,12 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         return true;
     }
 
+    public void championListClicked(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(), ChampionListActivity.class);
+        startActivity(intent);
+    }
+
     private class getAllChampionsData extends AsyncTask<Void, String, String>
     {
         String content;

@@ -139,7 +139,8 @@
             android:background="@color/colorPrimary"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
-            android:theme="@style/Animation.AppCompat.DropDownUp" />
+            android:theme="@style/Animation.AppCompat.DropDownUp"
+            android:onClick="championListClicked"/>
 
         <Button
             android:layout_width="120dp"
