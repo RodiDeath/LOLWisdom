@@ -88,7 +88,8 @@
                             android:text="Vida:"
                             android:id="@+id/tv_hpChampion"
                             android:padding="2dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -96,7 +97,8 @@
                             android:text="Mana:"
                             android:id="@+id/tv_manaChampion"
                             android:padding="2dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -104,7 +106,8 @@
                             android:text="Ataque:"
                             android:id="@+id/tv_adChampion"
                             android:padding="2dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -112,7 +115,8 @@
                             android:text="Armadura"
                             android:id="@+id/tv_armorChampion"
                             android:padding="2dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -120,7 +124,8 @@
                             android:text="Reg. vida"
                             android:id="@+id/tv_hpregenChampion"
                             android:padding="2dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -134,35 +139,40 @@
                             android:layout_height="wrap_content"
                             android:text="514(80)"
                             android:id="@+id/tv_hpChampionValue"
-                            android:padding="2dp" />
+                            android:padding="2dp"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="334(50)"
                             android:id="@+id/tv_manaChampionValue"
-                            android:padding="2dp" />
+                            android:padding="2dp"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="53.04(3)"
                             android:id="@+id/tv_adChampionValue"
-                            android:padding="2dp" />
+                            android:padding="2dp"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="20.88(3.5)"
                             android:id="@+id/tv_armorChampionValue"
-                            android:padding="2dp" />
+                            android:padding="2dp"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="6.51(0.6)"
                             android:id="@+id/tv_hpregenChampionValue"
-                            android:padding="2dp" />
+                            android:padding="2dp"
+                            android:textSize="12dp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -185,7 +195,8 @@
                             android:text="Reg. mana"
                             android:id="@+id/tv_manaregenChampion"
                             android:padding="2dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -193,7 +204,8 @@
                             android:text="Vel. ataque"
                             android:id="@+id/tv_aspdChampion"
                             android:padding="2dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -201,7 +213,8 @@
                             android:text="Res. magica"
                             android:id="@+id/tv_mrChampion"
                             android:padding="2dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -209,7 +222,8 @@
                             android:text="Movimiento"
                             android:id="@+id/tv_movspeedChampion"
                             android:padding="2dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12dp" />
 
                     </LinearLayout>
 
@@ -224,28 +238,32 @@
                             android:layout_height="wrap_content"
                             android:text="6"
                             android:id="@+id/tv_manaregenChampionValue"
-                            android:padding="2dp" />
+                            android:padding="2dp"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0.67(2)"
                             android:id="@+id/tv_aspdChampionValue"
-                            android:padding="2dp" />
+                            android:padding="2dp"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="30"
                             android:id="@+id/tv_mrChampionValue"
-                            android:padding="2dp" />
+                            android:padding="2dp"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="330"
                             android:id="@+id/tv_movspeedChampionValue"
-                            android:padding="2dp" />
+                            android:padding="2dp"
+                            android:textSize="12dp" />
 
                     </LinearLayout>
                 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.wisdom.lol.lolwisdom;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
@@ -150,6 +151,9 @@ public class ChampionListActivity extends AppCompatActivity
                 public void onClick(View v) {
                     // TODO Auto-generated method stub
                     Toast.makeText(context, result[position], Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),ChampionDataActivity.class);
+                    intent.putExtra("champ_name",result [position]);
+                    startActivity(intent);
                 }
             });
             return rowView;
