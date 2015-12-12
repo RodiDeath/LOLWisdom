@@ -254,9 +254,51 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="5dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skills"
+                    android:id="@+id/bt_championSkills"
+                    android:background="#123b43"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:layout_marginRight="2.5dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skins"
+                    android:id="@+id/bt_championSkins"
+                    android:background="#123b43"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="2.5dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#123b43"
                 android:paddingLeft="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lore"
+                    android:id="@+id/tv_championLoreTitle"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="5dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -269,6 +311,7 @@ Sin embargo, aunque tenía apariencia humana, sabía que en realidad la transfor
 -- Ahri"
                     android:id="@+id/tv_championLore"
                     android:paddingTop="10dp" />
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
