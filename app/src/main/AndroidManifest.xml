@@ -25,6 +25,30 @@
         <activity
             android:name=".ChampionDataActivity"
             android:label="@string/title_activity_champion_data"
+            android:parentActivityName=".ChampionListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wisdom.lol.lolwisdom.MainMenuActivity" />
+        </activity>
+        <activity
+            android:name=".SkillDataActivity"
+            android:label="@string/title_activity_skill_data"
+            android:parentActivityName=".ChampionDataActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wisdom.lol.lolwisdom.ChampionDataActivity" />
+        </activity>
+        <activity
+            android:name=".SkinDataActivity"
+            android:label="@string/title_activity_skin_data"
+            android:parentActivityName=".ChampionDataActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wisdom.lol.lolwisdom.ChampionDataActivity" />
+        </activity>
+        <activity
+            android:name=".ChampionListActivity"
+            android:label="@string/title_activity_champion_list"
             android:parentActivityName=".MainMenuActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

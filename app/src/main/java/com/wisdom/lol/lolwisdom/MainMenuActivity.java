@@ -117,11 +117,10 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
         if (id == R.id.nav_mainmenu)
         {
-            // Handle the camera action
+
         } else if (id == R.id.nav_champions)
         {
-
-            Intent intent = new Intent(getApplicationContext(), ChampionDataActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ChampionListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_settings)
         {

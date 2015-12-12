@@ -8,4 +8,7 @@
     <string name="title_activity_champion_data">ChampionDataActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_skill_data">SkillDataActivity</string>
+    <string name="title_activity_skin_data">SkinDataActivity</string>
+    <string name="title_activity_champion_list">ChampionListActivity</string>
 </resources>
