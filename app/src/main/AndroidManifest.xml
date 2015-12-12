@@ -54,6 +54,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.wisdom.lol.lolwisdom.MainMenuActivity" />
         </activity>
+        <activity
+            android:name=".PatchNotesActivity"
+            android:label="@string/title_activity_patch_notes"
+            android:parentActivityName=".MainMenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wisdom.lol.lolwisdom.MainMenuActivity" />
+        </activity>
     </application>
 
 </manifest>

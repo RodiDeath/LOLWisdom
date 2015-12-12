@@ -11,4 +11,5 @@
     <string name="title_activity_skill_data">SkillDataActivity</string>
     <string name="title_activity_skin_data">SkinDataActivity</string>
     <string name="title_activity_champion_list">ChampionListActivity</string>
+    <string name="title_activity_patch_notes">PatchNotesActivity</string>
 </resources>
