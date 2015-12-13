@@ -24,12 +24,15 @@ import java.io.IOException;
 
 public class PatchNotesActivity extends AppCompatActivity {
 
-    private WebView wvPatchnotes ;
+    private WebView wvPatchnotes;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        String region = "";
+        String lang = "";
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patch_notes);
 
@@ -38,7 +41,10 @@ public class PatchNotesActivity extends AppCompatActivity {
         wvPatchnotes.getSettings().setJavaScriptEnabled(true); // enable javascript
         wvPatchnotes.getSettings().setBuiltInZoomControls(true);
 
-        new getPatchNotes().execute("euw","es");
+        region = getIntent().getStringExtra("region");
+        lang = getIntent().getStringExtra("lang");
+
+        new getPatchNotes().execute(region,lang);
 
 
 
@@ -75,6 +81,14 @@ public class PatchNotesActivity extends AppCompatActivity {
         String urlLastPatchNotes = "";
 
         @Override
+        protected void onPreExecute()
+        {
+            super.onPreExecute();
+
+            Toast.makeText(getApplicationContext(), "Please wait a moment, the website will load soon...", Toast.LENGTH_LONG).show();
+        }
+
+        @Override
         protected Boolean doInBackground(String... params)
         {
             Document doc;
@@ -109,12 +123,11 @@ public class PatchNotesActivity extends AppCompatActivity {
             if (done)
             {
                 wvPatchnotes.loadUrl(urlLastPatchNotes);
-
-                Log.e("PENETRASION", "URL Patch Notes:" + urlLastPatchNotes);
             }
             else
             {
-                Toast.makeText(getApplicationContext(), "No se ha podido conectar con el servidor", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Cannot connect to server", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please, test your internet connection", Toast.LENGTH_SHORT).show();
             }
 
         }

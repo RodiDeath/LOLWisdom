@@ -1,17 +1,17 @@
 <resources>
-    <string name="app_name">LOLWisdom</string>
+    <string name="app_name">LOL Wisdom</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_champion_data">Campeon</string>
+    <string name="title_activity_champion_data">Champion</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_skill_data">Skills</string>
     <string name="title_activity_skin_data">Skins</string>
-    <string name="title_activity_champion_list">Lista de Campeones</string>
-    <string name="title_activity_patch_notes">Notas del Parche</string>
+    <string name="title_activity_champion_list">All Champions</string>
+    <string name="title_activity_patch_notes">Patch Notes</string>
 
     <string-array name="spinnerRegion">
         <item><string name="region_euw">Europa Oeste</string></item>

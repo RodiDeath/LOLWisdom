@@ -282,6 +282,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
     public void patchNotesClicked(View view)
     {
         Intent intent = new Intent(getApplicationContext(), PatchNotesActivity.class);
+        intent.putExtra("region", regionGlobal);
+        intent.putExtra("lang", langGlobal);
         startActivity(intent);
     }
 
@@ -382,7 +384,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         protected void onPostExecute(String result)
         {
             progressDialog.dismiss();
-            //new getFreeRotation().execute(regionGlobal, langGlobal);
+            finish();
+            startActivity(getIntent());
         }
 
         private Elements getChampionList()
@@ -644,6 +647,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         protected Boolean doInBackground(String... params)
         {
             Document doc;
+            Document docEUW;
             String region = params[0];
             String idioma = params[1];
             String urlRotationsList = "http://"+region+".leagueoflegends.com/"+idioma+"/news/champions-skins/free-rotation/";
@@ -651,16 +655,18 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
             try
             {
                 doc = Jsoup.connect(urlRotationsList).get();
+                docEUW = Jsoup.connect("http://"+"euw"+".leagueoflegends.com/"+"es"+"/news/champions-skins/free-rotation/").get();
 
                 labelRotacion = doc.select("h1").first().text();
-                Element lastFreeRotation = doc.select("h4").first().select("a").first();
+
+                Element lastFreeRotation = docEUW.select("h4").first().select("a").first();
 
                 String relativeUrl = lastFreeRotation.attr("href");
 
-                String urlLastRotation = "http://"+region+".leagueoflegends.com"+relativeUrl;
-                doc = Jsoup.connect(urlLastRotation).get();
+                String urlLastRotation = "http://"+"euw"+".leagueoflegends.com"+relativeUrl;
+                docEUW = Jsoup.connect(urlLastRotation).get();
 
-                Elements championsInRotation = doc.select("span[class=champion-name]");
+                Elements championsInRotation = docEUW.select("span[class=champion-name]");
 
                 for (Element e:  championsInRotation)
                 {
@@ -725,7 +731,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
             }
             else
             {
-                Toast.makeText(getApplicationContext(), "No se ha podido conectar con el servidor", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Cannot connect to server", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please, test your internet connection", Toast.LENGTH_SHORT).show();
             }
 
         }
