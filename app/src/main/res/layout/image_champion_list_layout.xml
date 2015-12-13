@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#123b43"
-        android:layout_margin="4dp">
+        android:layout_margin="2dp">
+
         <ImageView
             android:id="@+id/imageChampList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_ahri"
 
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="5dp"
-            />
+
+            android:paddingTop="2dp"
+            android:layout_gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/tvNombreChampList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|center_horizontal"
-            android:textSize="10dp"
+            android:textSize="8dp"
             android:text="Ahri"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+
+            android:ellipsize="none"
+            android:gravity="center"
+            android:maxLines="1"
+            />
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

@@ -12,4 +12,35 @@
     <string name="title_activity_skin_data">Skins</string>
     <string name="title_activity_champion_list">Lista de Campeones</string>
     <string name="title_activity_patch_notes">Notas del Parche</string>
+
+    <string-array name="spinnerRegion">
+        <item><string name="region_euw">Europa Oeste</string></item>
+        <item><string name="region_eune">Europa Este</string></item>
+        <item><string name="region_na">Norte America</string></item>
+        <item><string name="region_br">Brasil</string></item>
+        <item><string name="region_lan">Latino America Norte</string></item>
+        <item><string name="region_las">Latino America Sur</string></item>
+    </string-array>
+    <string-array name="spinnerLanguageEUW">
+        <item>Español</item>
+        <item>English</item>
+        <item>Français</item>
+        <item>Italiano</item>
+        <item>Deutch</item>
+    </string-array>
+    <string-array name="spinnerLanguageEUNE">
+        <item>English</item>
+    </string-array>
+    <string-array name="spinnerLanguageNA">
+        <item>English</item>
+    </string-array>
+    <string-array name="spinnerLanguageBR">
+        <item>Portugês</item>
+    </string-array>
+    <string-array name="spinnerLanguageLAN">
+        <item>Español</item>
+    </string-array>
+    <string-array name="spinnerLanguageLAS">
+        <item>Español</item>
+    </string-array>
 </resources>

@@ -1,14 +1,20 @@
 package com.wisdom.lol.lolwisdom;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.text.format.Time;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,7 +24,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +55,10 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 {
     ProgressDialog progressDialog;
     ArrayList<Champion> freeRotationChamps = new ArrayList<>();
+    SharedPreferences prefs;
+    boolean firstTime = true;
+    String regionGlobal = "";
+    String langGlobal = "";
 
 
     int progress=0;
@@ -67,13 +82,133 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        firstTime = prefs.getBoolean("first_time", true);
+        regionGlobal = prefs.getString("region", "euw");
+        langGlobal = prefs.getString("lang", "es");
+
+        if (firstTime)
+        {
+            LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+            View layout = inflater.inflate(R.layout.region_form_layout, (ViewGroup) findViewById(R.id.layout_region));
+
+            final EditText etSummoner = (EditText) layout.findViewById(R.id.etSummonerName);
+            final Spinner spiRegion = (Spinner) layout.findViewById(R.id.spinnerRegion);
+            final Spinner spiLang = (Spinner) layout.findViewById(R.id.spinnerLang);
+
+            spiRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+            {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+                {
+                    String[] languages = getRegionLanguages(parent.getItemAtPosition(position).toString());
+
+                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),   android.R.layout.simple_spinner_item, languages);
+                    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+                    spiLang.setAdapter(spinnerArrayAdapter);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
 
 
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(layout);
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which)
+                {
+                    String region = "euw";
+                    String lang = "es";
 
-        new getFreeRotation().execute("euw", "es");
+                    String[] regionLang = getRegionAndLanguageCodes(spiRegion.getSelectedItem().toString(), spiLang.getSelectedItem().toString());
 
-        //new getAllChampionsData().execute();
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("summonerName", etSummoner.getText().toString());
 
+                    editor.putString("region", regionLang[0]);
+                    editor.putString("lang", regionLang[1]);
+
+                    editor.putBoolean("first_time", false);
+                    editor.commit();
+
+                    dialog.dismiss();
+
+                    regionGlobal = prefs.getString("region", "euw");
+                    langGlobal = prefs.getString("lang", "es");
+                    new getAllChampionsData().execute(regionLang[0], regionLang[1]);
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.setCancelable(false);
+            dialog.setCanceledOnTouchOutside(false);
+
+            dialog.show();
+        }
+        else
+        {
+            new getFreeRotation().execute(regionGlobal, langGlobal);
+        }
+    }
+
+    private String[] getRegionAndLanguageCodes(String region, String lang)
+    {
+        String[] regionLang = {"",""};
+
+        switch (region)
+        {
+            case "Europa Oeste":
+                regionLang[0] = "euw";
+                break;
+            case "Europa Este":
+                regionLang[0] = "eune";
+                break;
+            case "Norte America":
+                regionLang[0] = "na";
+                break;
+            case "Brasil":
+                regionLang[0] = "br";
+                break;
+            case "Latino America Norte":
+                regionLang[0] = "lan";
+                break;
+            case "Latino America Sur":
+                regionLang[0] = "las";
+                break;
+            default:
+                regionLang[0] = "";
+                break;
+        }
+
+        switch (lang)
+        {
+            case "Español":
+                regionLang[1] = "es";
+                break;
+            case "English":
+                regionLang[1] = "en";
+                break;
+            case "Français":
+                regionLang[1] = "fr";
+                break;
+            case "Italiano":
+                regionLang[1] = "it";
+                break;
+            case "Deutch":
+                regionLang[1] = "de";
+                break;
+            case "Portugês":
+                regionLang[1] = "pt";
+                break;
+            default:
+                regionLang[1] = "";
+                break;
+        }
+        return  regionLang;
     }
 
     @Override
@@ -127,7 +262,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
         }else if (id == R.id.nav_refresh)
         {
-            new getAllChampionsData().execute();
+            new getAllChampionsData().execute(regionGlobal, langGlobal);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -147,15 +282,52 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         startActivity(intent);
     }
 
-    private class getAllChampionsData extends AsyncTask<Void, String, String>
+    private String[] getRegionLanguages(String region)
+    {
+        String[] languages;
+
+        switch (region)
+        {
+            case "Europa Oeste":
+                languages = getResources().getStringArray(R.array.spinnerLanguageEUW);
+                break;
+            case "Europa Este":
+                languages = getResources().getStringArray(R.array.spinnerLanguageEUNE);
+                break;
+            case "Norte America":
+                languages = getResources().getStringArray(R.array.spinnerLanguageNA);
+                break;
+            case "Brasil":
+                languages = getResources().getStringArray(R.array.spinnerLanguageBR);
+                break;
+            case "Latino America Norte":
+                languages = getResources().getStringArray(R.array.spinnerLanguageLAN);
+                break;
+            case "Latino America Sur":
+                languages = getResources().getStringArray(R.array.spinnerLanguageLAS);
+                break;
+            default:
+                languages = null;
+                break;
+        }
+
+        return languages;
+    }
+
+
+
+    private class getAllChampionsData extends AsyncTask<String, String, String>
     {
         String content;
+        String region = "euw";
+        String lang = "es";
+
 
         @Override
         protected void onProgressUpdate(String... msg)
         {
             super.onProgressUpdate(msg);
-            progressDialog.setMessage("Invocando a " + msg[0]);
+            progressDialog.setMessage("Summoning " + msg[0] + "...");
         }
 
         @Override
@@ -165,7 +337,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
             progress = 0;
             progressDialog = new ProgressDialog(MainMenuActivity.this);
             progressDialog.setIndeterminate(false);
-            progressDialog.setTitle("Descargando Datos...");
+            progressDialog.setTitle("Downloading Data");
             progressDialog.setMessage("");
             progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             progressDialog.setProgress(progress);
@@ -175,9 +347,12 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         }
 
         @Override
-        protected String doInBackground(Void... params)
+        protected String doInBackground(String... params)
         {
             String title = "";
+
+            region = params[0];
+            lang = params[1];
 
             Elements championList = getChampionList();
 
@@ -190,7 +365,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
             for (Element e:championList)
             {
                 publishProgress(e.text().toString());
-                getChampionData(e.text(), "euw" , "es");
+                getChampionData(e.text(), region , lang);
                 progress++;
                 progressDialog.setProgress(progress);
             }
@@ -204,6 +379,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         protected void onPostExecute(String result)
         {
             progressDialog.dismiss();
+            //new getFreeRotation().execute(regionGlobal, langGlobal);
         }
 
         private Elements getChampionList()
@@ -514,18 +690,23 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
             super.onPostExecute(done);
 
+            String rotationChampNames = "";
             int i=0;
-            for(Champion champ: freeRotationChamps){
-
+            for(Champion champ: freeRotationChamps)
+            {
                 array_iv[i].setImageBitmap(byteArrayToBitmap(champ.getImg()));
+                rotationChampNames += champ.getName()+"#";
                 i++;
-
             }
 
             if (done)
             {
                 TextView tvLabelRotacion = (TextView) findViewById(R.id.tvRotacion);
                 tvLabelRotacion.setText(labelRotacion);
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("rotation", rotationChampNames);
+                editor.commit();
             }
             else
             {

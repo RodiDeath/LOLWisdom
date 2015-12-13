@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:numColumns="5"
-        android:id="@+id/gridViewChampionList" />
+        android:id="@+id/gridViewChampionList"
+        android:stretchMode="columnWidth"/>
 
 </RelativeLayout>
