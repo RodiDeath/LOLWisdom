@@ -236,11 +236,14 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        /*
-        if (id == R.id.action_settings) {
+
+        if (id == R.id.refreshFreeRotation)
+        {
+            finish();
+            startActivity(getIntent());
             return true;
         }
-*/
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -675,32 +678,44 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         @Override
         protected void onPostExecute(Boolean done)
         {
-            ImageView[]array_iv = new ImageView[10];
-
-            array_iv[0]= (ImageView)findViewById(R.id.imageView1);
-            array_iv[1]= (ImageView)findViewById(R.id.imageView2);
-            array_iv[2]= (ImageView)findViewById(R.id.imageView3);
-            array_iv[3]= (ImageView)findViewById(R.id.imageView4);
-            array_iv[4]= (ImageView)findViewById(R.id.imageView5);
-            array_iv[5]= (ImageView)findViewById(R.id.imageView6);
-            array_iv[6]= (ImageView)findViewById(R.id.imageView7);
-            array_iv[7]= (ImageView)findViewById(R.id.imageView8);
-            array_iv[8]= (ImageView)findViewById(R.id.imageView9);
-            array_iv[9]= (ImageView)findViewById(R.id.imageView10);
-
             super.onPostExecute(done);
-
-            String rotationChampNames = "";
-            int i=0;
-            for(Champion champ: freeRotationChamps)
-            {
-                array_iv[i].setImageBitmap(byteArrayToBitmap(champ.getImg()));
-                rotationChampNames += champ.getName()+"#";
-                i++;
-            }
-
             if (done)
             {
+                ImageView[]array_iv = new ImageView[10];
+
+                array_iv[0]= (ImageView)findViewById(R.id.imageView1);
+                array_iv[1]= (ImageView)findViewById(R.id.imageView2);
+                array_iv[2]= (ImageView)findViewById(R.id.imageView3);
+                array_iv[3]= (ImageView)findViewById(R.id.imageView4);
+                array_iv[4]= (ImageView)findViewById(R.id.imageView5);
+                array_iv[5]= (ImageView)findViewById(R.id.imageView6);
+                array_iv[6]= (ImageView)findViewById(R.id.imageView7);
+                array_iv[7]= (ImageView)findViewById(R.id.imageView8);
+                array_iv[8]= (ImageView)findViewById(R.id.imageView9);
+                array_iv[9]= (ImageView)findViewById(R.id.imageView10);
+
+
+                String rotationChampNames = "";
+                int i=0;
+                for(final Champion champ: freeRotationChamps)
+                {
+                    array_iv[i].setImageBitmap(byteArrayToBitmap(champ.getImg()));
+                    array_iv[i].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v)
+                        {
+                            Intent intent = new Intent(getApplicationContext(), ChampionDataActivity.class);
+                            intent.putExtra("champ_name", champ.getName());
+                            startActivity(intent);
+                        }
+                    });
+
+
+                    rotationChampNames += champ.getName()+"#";
+                    i++;
+                }
+
+
                 TextView tvLabelRotacion = (TextView) findViewById(R.id.tvRotacion);
                 tvLabelRotacion.setText(labelRotacion);
 
