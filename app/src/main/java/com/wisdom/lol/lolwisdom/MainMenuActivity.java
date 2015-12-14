@@ -89,70 +89,82 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
         if (firstTime)
         {
-            LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-            View layout = inflater.inflate(R.layout.region_form_layout, (ViewGroup) findViewById(R.id.layout_region));
-
-            final EditText etSummoner = (EditText) layout.findViewById(R.id.etSummonerName);
-            final Spinner spiRegion = (Spinner) layout.findViewById(R.id.spinnerRegion);
-            final Spinner spiLang = (Spinner) layout.findViewById(R.id.spinnerLang);
-
-            spiRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-            {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-                {
-                    String[] languages = getRegionLanguages(parent.getItemAtPosition(position).toString());
-
-                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),   android.R.layout.simple_spinner_item, languages);
-                    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-                    spiLang.setAdapter(spinnerArrayAdapter);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setView(layout);
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    String region = "euw";
-                    String lang = "es";
-
-                    String[] regionLang = getRegionAndLanguageCodes(spiRegion.getSelectedItem().toString(), spiLang.getSelectedItem().toString());
-
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("summonerName", etSummoner.getText().toString());
-
-                    editor.putString("region", regionLang[0]);
-                    editor.putString("lang", regionLang[1]);
-
-                    editor.putBoolean("first_time", false);
-                    editor.commit();
-
-                    dialog.dismiss();
-
-                    regionGlobal = prefs.getString("region", "euw");
-                    langGlobal = prefs.getString("lang", "es");
-                    new getAllChampionsData().execute(regionLang[0], regionLang[1]);
-                }
-            });
-
-            AlertDialog dialog = builder.create();
-            dialog.setCancelable(false);
-            dialog.setCanceledOnTouchOutside(false);
-
-            dialog.show();
+            showConfigForm();
         }
         else
         {
             new getFreeRotation().execute(regionGlobal, langGlobal);
         }
+    }
+
+    private void showConfigForm()
+    {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.region_form_layout, (ViewGroup) findViewById(R.id.layout_region));
+
+        final EditText etSummoner = (EditText) layout.findViewById(R.id.etSummonerName);
+        final Spinner spiRegion = (Spinner) layout.findViewById(R.id.spinnerRegion);
+        final Spinner spiLang = (Spinner) layout.findViewById(R.id.spinnerLang);
+
+        spiRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                String[] languages = getRegionLanguages(parent.getItemAtPosition(position).toString());
+
+                ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),   android.R.layout.simple_spinner_item, languages);
+                spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+                spiLang.setAdapter(spinnerArrayAdapter);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(layout);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                String region = "euw";
+                String lang = "es";
+
+                String[] regionLang = getRegionAndLanguageCodes(spiRegion.getSelectedItem().toString(), spiLang.getSelectedItem().toString());
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("summonerName", etSummoner.getText().toString());
+
+                editor.putString("region", regionLang[0]);
+                editor.putString("lang", regionLang[1]);
+
+                editor.putBoolean("first_time", false);
+                editor.commit();
+
+                dialog.dismiss();
+
+                if (regionGlobal == prefs.getString("region", "NULL") && (langGlobal == prefs.getString("lang", "NULL")))
+                {
+
+                }
+                else
+                {
+                    regionGlobal = prefs.getString("region", "euw");
+                    langGlobal = prefs.getString("lang", "es");
+                    new getAllChampionsData().execute(regionLang[0], regionLang[1]);
+                }
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+
+        dialog.show();
     }
 
     private String[] getRegionAndLanguageCodes(String region, String lang)
@@ -262,7 +274,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
             startActivity(intent);
         } else if (id == R.id.nav_settings)
         {
-
+            showConfigForm();
         }else if (id == R.id.nav_refresh)
         {
             new getAllChampionsData().execute(regionGlobal, langGlobal);
