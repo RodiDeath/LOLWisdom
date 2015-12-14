@@ -19,14 +19,19 @@ public class ChampionDataActivity extends AppCompatActivity {
 
     String champ_name="";
     BD_LOLUniversity bd= new BD_LOLUniversity(this);
+    boolean vieneDeVuelta = false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_champion_data);
 
-        champ_name= getIntent().getStringExtra("champ_name");
-        Champion champ= new Champion();
+        if (!vieneDeVuelta)
+        {
+            champ_name = getIntent().getStringExtra("champ_name");
+        }
+        Champion champ;
         champ= bd.getChampionByName(champ_name);
 
 
@@ -98,6 +103,14 @@ public class ChampionDataActivity extends AppCompatActivity {
 
         Intent intent= new Intent(getApplicationContext(),SkillDataActivity.class);
         intent.putExtra("champ_name",champ_name);
-        startActivity(intent);
+        startActivityForResult(intent, 17);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        champ_name = data.getStringExtra("champ_name");
     }
 }

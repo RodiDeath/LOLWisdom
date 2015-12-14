@@ -1,5 +1,6 @@
 package com.wisdom.lol.lolwisdom;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
@@ -101,7 +102,12 @@ public class SkillDataActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == android.R.id.home)
+        {
+            Intent champName = new Intent();
+            champName.putExtra("champ_name", champ_name);
+            setResult(17, champName);
+            finish();
             return true;
         }
 
