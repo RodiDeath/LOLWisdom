@@ -298,7 +298,8 @@
                     android:textColor="@color/colorAccent"
                     android:textStyle="bold"
                     android:layout_marginLeft="2.5dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:onClick="skinsButtonClicked"/>
             </LinearLayout>
 
             <LinearLayout

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="@dimen/nav_header_height"
 
 
@@ -12,4 +12,14 @@
         android:id="@+id/imageView"
         android:src="@drawable/background_header_drawer_ahri_small"
         android:scaleType="centerCrop" />
-</LinearLayout>
+    <TextView
+        android:id="@+id/tvSummoner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:text="RodiDeath"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp"
+        android:gravity="bottom|right"
+        android:textStyle="bold|italic" />
+</RelativeLayout>

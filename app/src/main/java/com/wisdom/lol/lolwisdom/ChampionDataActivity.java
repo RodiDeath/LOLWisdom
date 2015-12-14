@@ -11,6 +11,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wisdom.lol.lolwisdom.model.BD_LOLUniversity;
 import com.wisdom.lol.lolwisdom.model.Champion;
@@ -112,5 +113,11 @@ public class ChampionDataActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         champ_name = data.getStringExtra("champ_name");
+    }
+
+    public void skinsButtonClicked(View view)
+    {
+        Toast.makeText(ChampionDataActivity.this, "Skins are coming up in the next patch...", Toast.LENGTH_LONG).show();
+        Toast.makeText(ChampionDataActivity.this, "KEEP\nCALM \nand \nJUST FF", Toast.LENGTH_LONG).show();
     }
 }

@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.text.format.Time;
@@ -59,6 +60,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
     boolean firstTime = true;
     String regionGlobal = "";
     String langGlobal = "";
+    String summoner = "";
+    TextView tvSummonerName;
 
 
     int progress=0;
@@ -73,6 +76,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -84,12 +88,14 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
         firstTime = prefs.getBoolean("first_time", true);
-        regionGlobal = prefs.getString("region", "euw");
-        langGlobal = prefs.getString("lang", "es");
+        regionGlobal = prefs.getString("region", "");
+        langGlobal = prefs.getString("lang", "");
+        summoner = prefs.getString("summonerName", "");
+
 
         if (firstTime)
         {
-            showConfigForm();
+            showConfigForm(false);
         }
         else
         {
@@ -97,7 +103,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         }
     }
 
-    private void showConfigForm()
+
+    private void showConfigForm(boolean fromConfig)
     {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.region_form_layout, (ViewGroup) findViewById(R.id.layout_region));
@@ -109,13 +116,13 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         spiRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-            {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String[] languages = getRegionLanguages(parent.getItemAtPosition(position).toString());
 
-                ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),   android.R.layout.simple_spinner_item, languages);
+                ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, languages);
                 spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
                 spiLang.setAdapter(spinnerArrayAdapter);
+
             }
 
             @Override
@@ -149,7 +156,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
                 if (regionGlobal == prefs.getString("region", "NULL") && (langGlobal == prefs.getString("lang", "NULL")))
                 {
-
+                    tvSummonerName.setText(etSummoner.getText().toString());
                 }
                 else
                 {
@@ -159,6 +166,17 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
                 }
             }
         });
+
+        if (fromConfig)
+        {
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which)
+                {
+                    dialog.dismiss();
+                }
+            });
+        }
 
         AlertDialog dialog = builder.create();
         dialog.setCancelable(false);
@@ -237,6 +255,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        tvSummonerName = (TextView) findViewById(R.id.tvSummoner);
+        tvSummonerName.setText(summoner);
         return true;
     }
 
@@ -249,8 +269,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
         //noinspection SimplifiableIfStatement
 
-        if (id == R.id.refreshFreeRotation)
-        {
+        if (id == R.id.refreshFreeRotation) {
             finish();
             startActivity(getIntent());
             return true;
@@ -274,7 +293,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
             startActivity(intent);
         } else if (id == R.id.nav_settings)
         {
-            showConfigForm();
+            showConfigForm(true);
         }else if (id == R.id.nav_refresh)
         {
             new getAllChampionsData().execute(regionGlobal, langGlobal);
