@@ -19,7 +19,7 @@ public class SkillDataActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_skill_data, menu);
         return true;
     }
-
+//comentario prueba
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
