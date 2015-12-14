@@ -38,8 +38,8 @@ public class SkillDataActivity extends AppCompatActivity {
         ImageView rSkillimg= (ImageView)findViewById(R.id.iv_rSkillimage);
 
         //PASIVA
-        TextView PasiveSkillTitle= (TextView)findViewById(R.id.tv_pasiveSkillTitle);
-        TextView PasiveSkillDescription= (TextView)findViewById(R.id.tv_pasiveSkillDescription);
+        TextView pasiveSkillTitle= (TextView)findViewById(R.id.tv_pasiveSkillTitle);
+        TextView pasiveSkillDescription= (TextView)findViewById(R.id.tv_pasiveSkillDescription);
 
         //Q
         TextView qSkillTitle= (TextView)findViewById(R.id.tv_qSkillTitle);
@@ -81,7 +81,71 @@ public class SkillDataActivity extends AppCompatActivity {
         eSkillimg.setImageBitmap(byteArrayToBitmap(skills.get(3).getSkill_img()));
         rSkillimg.setImageBitmap(byteArrayToBitmap(skills.get(4).getSkill_img()));
 
+        //PASIVA
 
+        pasiveSkillTitle.setText(skills.get(0).getSkill_name());
+        pasiveSkillDescription.setText(skills.get(0).getDescription());
+
+        String costeLabel="";
+        String costeValue="";
+        String rangoLabel="";
+        String rangoValue="";
+
+        //Q
+
+        costeLabel=skills.get(1).getSkill_cost().split(":")[0]+":";
+        costeValue=skills.get(1).getSkill_cost().split(":")[1];
+        rangoLabel=skills.get(1).getSkill_range().split(":")[0]+":";
+        rangoValue=skills.get(1).getSkill_range().split(":")[1];
+
+        qSkillTitle.setText(skills.get(1).getSkill_name());
+        qSkillCost.setText(costeLabel);
+        qSkillCostValue.setText(costeValue);
+        qSkillRange.setText(rangoLabel);
+        qSkillRangeValue.setText(rangoValue);
+        qSkillDescription.setText(skills.get(1).getDescription()+"\n\n"+skills.get(1).getDetail());
+
+        //W
+
+        costeLabel=skills.get(2).getSkill_cost().split(":")[0]+":";
+        costeValue=skills.get(2).getSkill_cost().split(":")[1];
+        rangoLabel=skills.get(2).getSkill_range().split(":")[0]+":";
+        rangoValue=skills.get(2).getSkill_range().split(":")[1];
+
+        wSkillTitle.setText(skills.get(2).getSkill_name());
+        wSkillCost.setText(costeLabel);
+        wSkillCostValue.setText(costeValue);
+        wSkillRange.setText(rangoLabel);
+        wSkillRangeValue.setText(rangoValue);
+        wSkillDescription.setText(skills.get(2).getDescription()+"\n\n"+skills.get(2).getDetail());
+
+        //E
+
+        costeLabel=skills.get(3).getSkill_cost().split(":")[0]+":";
+        costeValue=skills.get(3).getSkill_cost().split(":")[1];
+        rangoLabel=skills.get(3).getSkill_range().split(":")[0]+":";
+        rangoValue=skills.get(3).getSkill_range().split(":")[1];
+
+        eSkillTitle.setText(skills.get(3).getSkill_name());
+        eSkillCost.setText(costeLabel);
+        eSkillCostValue.setText(costeValue);
+        eSkillRange.setText(rangoLabel);
+        eSkillRangeValue.setText(rangoValue);
+        eSkillDescription.setText(skills.get(3).getDescription()+"\n\n"+skills.get(3).getDetail());
+
+        //R
+
+        costeLabel=skills.get(4).getSkill_cost().split(":")[0]+":";
+        costeValue=skills.get(4).getSkill_cost().split(":")[1];
+        rangoLabel=skills.get(4).getSkill_range().split(":")[0]+":";
+        rangoValue=skills.get(4).getSkill_range().split(":")[1];
+
+        eSkillTitle.setText(skills.get(4).getSkill_name());
+        eSkillCost.setText(costeLabel);
+        eSkillCostValue.setText(costeValue);
+        eSkillRange.setText(rangoLabel);
+        eSkillRangeValue.setText(rangoValue);
+        eSkillDescription.setText(skills.get(4).getDescription()+"\n\n"+skills.get(4).getDetail());
 
 
     }

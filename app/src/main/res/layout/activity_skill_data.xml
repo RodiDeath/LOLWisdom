@@ -25,12 +25,11 @@
                 android:paddingBottom="10dp"
                 android:background="#123b43"
                 android:paddingLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
-                    android:layout_width="85dp"
-                    android:layout_height="85dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:id="@+id/iv_pasiveSkillimage"
                     android:src="@drawable/ahri_pasive" />
 
@@ -66,7 +65,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -76,18 +75,19 @@
                     android:background="#123b43"
                     android:paddingLeft="5dp"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp" >
+                    android:paddingBottom="10dp">
 
                     <ImageView
-                        android:layout_width="85dp"
-                        android:layout_height="85dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:id="@+id/iv_qSkillimage"
                         android:src="@drawable/ahri_q" />
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp">
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -107,7 +107,7 @@
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
+                            android:layout_height="wrap_content" >
 
                             <LinearLayout
                                 android:orientation="vertical"
@@ -166,7 +166,8 @@
                         android:text="Ahri lanza y recupera su orbe, infligiendo daño mágico al lanzarlo y daño verdadero al recuperarlo. Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe. Inflige 40/65/90/115/140 (+35% Poder de Habilidad) de daño mágico al ir y 40/65/90/115/140 (+35% Poder de Habilidad) de daño verdadero al regresar.Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe."
                         android:id="@+id/tv_qSkillDescription"
                         android:layout_marginBottom="5dp"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        android:layout_marginLeft="5dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -186,15 +187,16 @@
                     android:paddingBottom="10dp" >
 
                     <ImageView
-                        android:layout_width="85dp"
-                        android:layout_height="85dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:id="@+id/iv_wSkillimage"
                         android:src="@drawable/ahri_w" />
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp">
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -214,7 +216,7 @@
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
+                            android:layout_height="wrap_content" >
 
                             <LinearLayout
                                 android:orientation="vertical"
@@ -264,8 +266,8 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#123b43" >
+                    android:layout_height="wrap_content"
+                    android:background="#123b43">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -273,7 +275,8 @@
                         android:text="Ahri lanza y recupera su orbe, infligiendo daño mágico al lanzarlo y daño verdadero al recuperarlo. Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe. Inflige 40/65/90/115/140 (+35% Poder de Habilidad) de daño mágico al ir y 40/65/90/115/140 (+35% Poder de Habilidad) de daño verdadero al regresar.Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe."
                         android:id="@+id/tv_wSkillDescription"
                         android:layout_marginBottom="5dp"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        android:layout_marginLeft="5dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -293,15 +296,16 @@
                     android:paddingBottom="10dp" >
 
                     <ImageView
-                        android:layout_width="85dp"
-                        android:layout_height="85dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:id="@+id/iv_eSkillimage"
                         android:src="@drawable/ahri_q" />
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp">
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -321,7 +325,7 @@
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
+                            android:layout_height="wrap_content" >
 
                             <LinearLayout
                                 android:orientation="vertical"
@@ -380,7 +384,8 @@
                         android:text="Ahri lanza y recupera su orbe, infligiendo daño mágico al lanzarlo y daño verdadero al recuperarlo. Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe. Inflige 40/65/90/115/140 (+35% Poder de Habilidad) de daño mágico al ir y 40/65/90/115/140 (+35% Poder de Habilidad) de daño verdadero al regresar.Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe."
                         android:id="@+id/tv_eSkillDescription"
                         android:layout_marginBottom="5dp"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        android:layout_marginLeft="5dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -400,15 +405,16 @@
                     android:paddingBottom="10dp" >
 
                     <ImageView
-                        android:layout_width="85dp"
-                        android:layout_height="85dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:id="@+id/iv_rSkillimage"
                         android:src="@drawable/ahri_q" />
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp">
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -428,7 +434,7 @@
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
+                            android:layout_height="wrap_content" >
 
                             <LinearLayout
                                 android:orientation="vertical"
@@ -487,7 +493,8 @@
                         android:text="Ahri lanza y recupera su orbe, infligiendo daño mágico al lanzarlo y daño verdadero al recuperarlo. Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe. Inflige 40/65/90/115/140 (+35% Poder de Habilidad) de daño mágico al ir y 40/65/90/115/140 (+35% Poder de Habilidad) de daño verdadero al regresar.Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe."
                         android:id="@+id/tv_rSkillDescription"
                         android:layout_marginBottom="5dp"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        android:layout_marginLeft="5dp" />
                 </LinearLayout>
             </LinearLayout>
 
