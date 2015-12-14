@@ -354,7 +354,7 @@ public class BD_LOLUniversity extends SQLiteOpenHelper
         return skills;
     }
 
-    public ArrayList<Skill> getSkills(String champName)
+    public ArrayList<Skill> getSkillsByChampName(String champName)
     {
         ArrayList<Skill> skills = new ArrayList<>();
 
