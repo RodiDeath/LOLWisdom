@@ -1,11 +1,13 @@
 package com.wisdom.lol.lolwisdom;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -90,5 +92,12 @@ public class ChampionDataActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
         return bitmap;
+    }
+
+    public void skillsButtonClicked(View view) {
+
+        Intent intent= new Intent(getApplicationContext(),SkillDataActivity.class);
+        intent.putExtra("champ_name",champ_name);
+        startActivity(intent);
     }
 }

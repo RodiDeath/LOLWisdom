@@ -1,12 +1,496 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.wisdom.lol.lolwisdom.SkillDataActivity">
+    tools:context="com.wisdom.lol.lolwisdom.SkillDataActivity"
+    android:background="#09191d">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2" >
 
-</RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="#123b43"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:id="@+id/iv_pasiveSkillimage"
+                    android:src="@drawable/ahri_pasive" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Robo De Esencias"
+                        android:id="@+id/tv_pasiveSkillTitle"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="17dp"
+                        android:padding="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Obtiene una carga de Robo de esencias cada vez que uno de sus hechizos impacta en un enemigo (máximo: 3 cargas por hechizo). Al alcanzar 9 cargas, el siguiente hechizo de Ahri la curará cada vez que golpee a un enemigo."
+                        android:id="@+id/tv_pasiveSkillDescription"
+                        android:layout_marginLeft="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="#123b43"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" >
+
+                    <ImageView
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:id="@+id/iv_qSkillimage"
+                        android:src="@drawable/ahri_q" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Orbe del engaño"
+                                android:id="@+id/tv_qSkillTitle"
+                                android:padding="6dp"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="17dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Coste:"
+                                    android:id="@+id/tv_qSkillCost"
+                                    android:textStyle="bold"
+                                    android:padding="3dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alcance:"
+                                    android:id="@+id/tv_qSkillRange"
+                                    android:padding="3dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="65/70/75/80/85 de maná"
+                                    android:id="@+id/tv_qSkillCostValue"
+                                    android:padding="3dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="880"
+                                    android:id="@+id/tv_qSkillRangeValue"
+                                    android:padding="3dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#123b43">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ahri lanza y recupera su orbe, infligiendo daño mágico al lanzarlo y daño verdadero al recuperarlo. Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe. Inflige 40/65/90/115/140 (+35% Poder de Habilidad) de daño mágico al ir y 40/65/90/115/140 (+35% Poder de Habilidad) de daño verdadero al regresar.Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe."
+                        android:id="@+id/tv_qSkillDescription"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="12dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="#123b43"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" >
+
+                    <ImageView
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:id="@+id/iv_wSkillimage"
+                        android:src="@drawable/ahri_w" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fuego zorruno"
+                                android:id="@+id/tv_wSkillTitle"
+                                android:padding="6dp"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="17dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Coste:"
+                                    android:id="@+id/tv_wSkillCost"
+                                    android:textStyle="bold"
+                                    android:padding="3dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alcance:"
+                                    android:id="@+id/tv_wSkillRange"
+                                    android:padding="3dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="65/70/75/80/85 de maná"
+                                    android:id="@+id/tv_wSkillCostValue"
+                                    android:padding="3dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="880"
+                                    android:id="@+id/tv_wSkillRangeValue"
+                                    android:padding="3dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#123b43" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ahri lanza y recupera su orbe, infligiendo daño mágico al lanzarlo y daño verdadero al recuperarlo. Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe. Inflige 40/65/90/115/140 (+35% Poder de Habilidad) de daño mágico al ir y 40/65/90/115/140 (+35% Poder de Habilidad) de daño verdadero al regresar.Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe."
+                        android:id="@+id/tv_wSkillDescription"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="12dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="#123b43"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" >
+
+                    <ImageView
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:id="@+id/iv_eSkillimage"
+                        android:src="@drawable/ahri_q" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Orbe del engaño"
+                                android:id="@+id/tv_eSkillTitle"
+                                android:padding="6dp"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="17dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Coste:"
+                                    android:id="@+id/tv_eSkillCost"
+                                    android:textStyle="bold"
+                                    android:padding="3dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alcance:"
+                                    android:id="@+id/tv_eSkillRange"
+                                    android:padding="3dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="65/70/75/80/85 de maná"
+                                    android:id="@+id/tv_eSkillCostValue"
+                                    android:padding="3dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="880"
+                                    android:id="@+id/tv_eSkillRangeValue"
+                                    android:padding="3dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#123b43" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ahri lanza y recupera su orbe, infligiendo daño mágico al lanzarlo y daño verdadero al recuperarlo. Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe. Inflige 40/65/90/115/140 (+35% Poder de Habilidad) de daño mágico al ir y 40/65/90/115/140 (+35% Poder de Habilidad) de daño verdadero al regresar.Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe."
+                        android:id="@+id/tv_eSkillDescription"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="12dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="#123b43"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" >
+
+                    <ImageView
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:id="@+id/iv_rSkillimage"
+                        android:src="@drawable/ahri_q" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Orbe del engaño"
+                                android:id="@+id/tv_rSkillTitle"
+                                android:padding="6dp"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="17dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Coste:"
+                                    android:id="@+id/tv_rSkillCost"
+                                    android:textStyle="bold"
+                                    android:padding="3dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alcance:"
+                                    android:id="@+id/tv_rSkillRange"
+                                    android:padding="3dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="65/70/75/80/85 de maná"
+                                    android:id="@+id/tv_rSkillCostValue"
+                                    android:padding="3dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="880"
+                                    android:id="@+id/tv_rSkillRangeValue"
+                                    android:padding="3dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#123b43" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ahri lanza y recupera su orbe, infligiendo daño mágico al lanzarlo y daño verdadero al recuperarlo. Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe. Inflige 40/65/90/115/140 (+35% Poder de Habilidad) de daño mágico al ir y 40/65/90/115/140 (+35% Poder de Habilidad) de daño verdadero al regresar.Ahri gana velocidad de movimiento decreciente cuando se mueve el orbe."
+                        android:id="@+id/tv_rSkillDescription"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="12dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

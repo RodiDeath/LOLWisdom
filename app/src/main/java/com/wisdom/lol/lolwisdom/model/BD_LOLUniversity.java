@@ -357,10 +357,14 @@ public class BD_LOLUniversity extends SQLiteOpenHelper
     public ArrayList<Skill> getSkillsByChampName(String champName)
     {
         ArrayList<Skill> skills = new ArrayList<>();
+        if(champName.contains("'")) {
+            champName = champName.replaceAll("'","''");
+        }
 
         String consulta = "SELECT * FROM " + TABLE_SKILLS + " WHERE " + COLUMN_CHAMP_NAME + " = '" + champName + "';";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(consulta, null);
+        Log.e("BD","Consulta: "+consulta);
 
         if (cursor.moveToFirst())
         {
