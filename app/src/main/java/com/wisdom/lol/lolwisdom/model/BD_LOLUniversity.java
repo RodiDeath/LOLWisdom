@@ -354,8 +354,11 @@ public class BD_LOLUniversity extends SQLiteOpenHelper
         return skills;
     }
 
-    public ArrayList<Skill> getSkillsByChampName(String champName)
+    public ArrayList<Skill> getSkillsByChampName(String championName)
     {
+        String champName = championName.replaceAll("\\W", "");
+        champName = champName.toLowerCase();
+
         ArrayList<Skill> skills = new ArrayList<>();
         if(champName.contains("'")) {
             champName = champName.replaceAll("'","''");
