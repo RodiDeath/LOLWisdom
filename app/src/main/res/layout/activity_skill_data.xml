@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:background="#123b43"
+                android:background="#006982"
                 android:paddingLeft="5dp"
                 android:layout_marginTop="5dp">
 
@@ -46,7 +46,8 @@
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/colorAccent"
                         android:textSize="17dp"
-                        android:padding="6dp" />
+                        android:padding="6dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -72,7 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="#123b43"
+                    android:background="#0d2a30"
                     android:paddingLeft="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp">
@@ -101,7 +102,8 @@
                                 android:id="@+id/tv_qSkillTitle"
                                 android:padding="6dp"
                                 android:textColor="@color/colorAccent"
-                                android:textSize="17dp" />
+                                android:textSize="17dp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -109,7 +111,7 @@
                                 android:text="Coste: 65/70/75/80/85 de maná"
                                 android:id="@+id/tv_qSkillCost"
                                 android:padding="3dp"
-                                android:textStyle="italic" />
+                                android:textStyle="bold|italic" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -117,7 +119,7 @@
                                 android:text="Alcance: 880"
                                 android:id="@+id/tv_qSkillRange"
                                 android:padding="3dp"
-                                android:textStyle="italic" />
+                                android:textStyle="bold|italic" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -150,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="#123b43"
+                    android:background="#0d2a30"
                     android:paddingLeft="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" >
@@ -179,7 +181,8 @@
                                 android:id="@+id/tv_wSkillTitle"
                                 android:padding="6dp"
                                 android:textColor="@color/colorAccent"
-                                android:textSize="17dp" />
+                                android:textSize="17dp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -187,7 +190,7 @@
                                 android:text="Coste: 65/70/75/80/85 de maná"
                                 android:id="@+id/tv_wSkillCost"
                                 android:padding="3dp"
-                                android:textStyle="italic" />
+                                android:textStyle="bold|italic" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -195,7 +198,7 @@
                                 android:text="Alcance: 880"
                                 android:id="@+id/tv_wSkillRange"
                                 android:padding="3dp"
-                                android:textStyle="italic" />
+                                android:textStyle="bold|italic" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -228,7 +231,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="#123b43"
+                    android:background="#0d2a30"
                     android:paddingLeft="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" >
@@ -257,7 +260,8 @@
                                 android:id="@+id/tv_eSkillTitle"
                                 android:padding="6dp"
                                 android:textColor="@color/colorAccent"
-                                android:textSize="17dp" />
+                                android:textSize="17dp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -265,7 +269,7 @@
                                 android:text="Coste:"
                                 android:id="@+id/tv_eSkillCost"
                                 android:padding="3dp"
-                                android:textStyle="italic" />
+                                android:textStyle="bold|italic" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -273,7 +277,7 @@
                                 android:text="Alcance:"
                                 android:id="@+id/tv_eSkillRange"
                                 android:padding="3dp"
-                                android:textStyle="italic" />
+                                android:textStyle="bold|italic" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -306,7 +310,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="#123b43"
+                    android:background="#0d2a30"
                     android:paddingLeft="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" >
@@ -335,7 +339,8 @@
                                 android:id="@+id/tv_rSkillTitle"
                                 android:padding="6dp"
                                 android:textColor="@color/colorAccent"
-                                android:textSize="17dp" />
+                                android:textSize="17dp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -343,7 +348,7 @@
                                 android:text="Coste:"
                                 android:id="@+id/tv_rSkillCost"
                                 android:padding="3dp"
-                                android:textStyle="italic" />
+                                android:textStyle="bold|italic" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -351,7 +356,7 @@
                                 android:text="Alcance:"
                                 android:id="@+id/tv_rSkillRange"
                                 android:padding="3dp"
-                                android:textStyle="italic" />
+                                android:textStyle="bold|italic" />
                         </LinearLayout>
 
                     </LinearLayout>
