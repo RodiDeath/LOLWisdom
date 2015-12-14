@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -44,33 +45,25 @@ public class SkillDataActivity extends AppCompatActivity {
         //Q
         TextView qSkillTitle= (TextView)findViewById(R.id.tv_qSkillTitle);
         TextView qSkillCost= (TextView)findViewById(R.id.tv_qSkillCost);
-        TextView qSkillCostValue= (TextView)findViewById(R.id.tv_qSkillCostValue);
-        TextView qSkillRange= (TextView)findViewById(R.id.tv_qSkillRangeValue);
-        TextView qSkillRangeValue= (TextView)findViewById(R.id.tv_qSkillRangeValue);
+        TextView qSkillRange= (TextView)findViewById(R.id.tv_qSkillRange);
         TextView qSkillDescription= (TextView)findViewById(R.id.tv_qSkillDescription);
 
         //W
         TextView wSkillTitle= (TextView)findViewById(R.id.tv_wSkillTitle);
         TextView wSkillCost= (TextView)findViewById(R.id.tv_wSkillCost);
-        TextView wSkillCostValue= (TextView)findViewById(R.id.tv_wSkillCostValue);
         TextView wSkillRange= (TextView)findViewById(R.id.tv_wSkillRange);
-        TextView wSkillRangeValue= (TextView)findViewById(R.id.tv_wSkillRangeValue);
         TextView wSkillDescription= (TextView)findViewById(R.id.tv_wSkillDescription);
 
         //E
         TextView eSkillTitle= (TextView)findViewById(R.id.tv_eSkillTitle);
         TextView eSkillCost= (TextView)findViewById(R.id.tv_eSkillCost);
-        TextView eSkillCostValue= (TextView)findViewById(R.id.tv_eSkillCostValue);
         TextView eSkillRange= (TextView)findViewById(R.id.tv_eSkillRange);
-        TextView eSkillRangeValue= (TextView)findViewById(R.id.tv_eSkillRangeValue);
         TextView eSkillDescription= (TextView)findViewById(R.id.tv_eSkillDescription);
 
         //R
         TextView rSkillTitle= (TextView)findViewById(R.id.tv_rSkillTitle);
         TextView rSkillCost= (TextView)findViewById(R.id.tv_rSkillCost);
-        TextView rSkillCostValue= (TextView)findViewById(R.id.tv_rSkillCostValue);
         TextView rSkillRange= (TextView)findViewById(R.id.tv_rSkillRange);
-        TextView rSkillRangeValue= (TextView)findViewById(R.id.tv_rSkillRangeValue);
         TextView rSkillDescription= (TextView)findViewById(R.id.tv_rSkillDescription);
 
         //IMAGENES
@@ -86,70 +79,59 @@ public class SkillDataActivity extends AppCompatActivity {
         pasiveSkillTitle.setText(skills.get(0).getSkill_name());
         pasiveSkillDescription.setText(skills.get(0).getDescription());
 
-        String costeLabel="";
-        String costeValue="";
-        String rangoLabel="";
-        String rangoValue="";
-
         //Q
 
-        costeLabel=skills.get(1).getSkill_cost().split(":")[0]+":";
-        costeValue=skills.get(1).getSkill_cost().split(":")[1];
-        rangoLabel=skills.get(1).getSkill_range().split(":")[0]+":";
-        rangoValue=skills.get(1).getSkill_range().split(":")[1];
-
         qSkillTitle.setText(skills.get(1).getSkill_name());
-        qSkillCost.setText(costeLabel);
-        qSkillCostValue.setText(costeValue);
-        qSkillRange.setText(rangoLabel);
-        qSkillRangeValue.setText(rangoValue);
+        qSkillCost.setText(skills.get(1).getSkill_cost());
+        qSkillRange.setText(skills.get(1).getSkill_range());
         qSkillDescription.setText(skills.get(1).getDescription()+"\n\n"+skills.get(1).getDetail());
 
         //W
 
-        costeLabel=skills.get(2).getSkill_cost().split(":")[0]+":";
-        costeValue=skills.get(2).getSkill_cost().split(":")[1];
-        rangoLabel=skills.get(2).getSkill_range().split(":")[0]+":";
-        rangoValue=skills.get(2).getSkill_range().split(":")[1];
-
         wSkillTitle.setText(skills.get(2).getSkill_name());
-        wSkillCost.setText(costeLabel);
-        wSkillCostValue.setText(costeValue);
-        wSkillRange.setText(rangoLabel);
-        wSkillRangeValue.setText(rangoValue);
+        wSkillCost.setText(skills.get(2).getSkill_cost());
+        wSkillRange.setText(skills.get(2).getSkill_range());
         wSkillDescription.setText(skills.get(2).getDescription()+"\n\n"+skills.get(2).getDetail());
 
         //E
 
-        costeLabel=skills.get(3).getSkill_cost().split(":")[0]+":";
-        costeValue=skills.get(3).getSkill_cost().split(":")[1];
-        rangoLabel=skills.get(3).getSkill_range().split(":")[0]+":";
-        rangoValue=skills.get(3).getSkill_range().split(":")[1];
-
         eSkillTitle.setText(skills.get(3).getSkill_name());
-        eSkillCost.setText(costeLabel);
-        eSkillCostValue.setText(costeValue);
-        eSkillRange.setText(rangoLabel);
-        eSkillRangeValue.setText(rangoValue);
+        eSkillCost.setText(skills.get(3).getSkill_cost());
+        eSkillRange.setText(skills.get(3).getSkill_range());
         eSkillDescription.setText(skills.get(3).getDescription()+"\n\n"+skills.get(3).getDetail());
 
         //R
 
-        costeLabel=skills.get(4).getSkill_cost().split(":")[0]+":";
-        costeValue=skills.get(4).getSkill_cost().split(":")[1];
-        rangoLabel=skills.get(4).getSkill_range().split(":")[0]+":";
-        rangoValue=skills.get(4).getSkill_range().split(":")[1];
-
-        eSkillTitle.setText(skills.get(4).getSkill_name());
-        eSkillCost.setText(costeLabel);
-        eSkillCostValue.setText(costeValue);
-        eSkillRange.setText(rangoLabel);
-        eSkillRangeValue.setText(rangoValue);
-        eSkillDescription.setText(skills.get(4).getDescription()+"\n\n"+skills.get(4).getDetail());
+        rSkillTitle.setText(skills.get(4).getSkill_name());
+        rSkillCost.setText(skills.get(4).getSkill_cost());
+        rSkillRange.setText(skills.get(4).getSkill_range());
+        rSkillDescription.setText(skills.get(4).getDescription()+"\n\n"+skills.get(4).getDetail());
 
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent champName = new Intent();
+        champName.putExtra("champ_name", champ_name);
+        setResult(17, champName);
+        finish();
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+
+            Intent champName = new Intent();
+            champName.putExtra("champ_name", champ_name);
+            setResult(17, champName);
+            finish();
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

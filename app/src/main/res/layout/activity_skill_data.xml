@@ -102,55 +102,24 @@
                                 android:padding="6dp"
                                 android:textColor="@color/colorAccent"
                                 android:textSize="17dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Coste: 65/70/75/80/85 de maná"
+                                android:id="@+id/tv_qSkillCost"
+                                android:padding="3dp"
+                                android:textStyle="italic" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alcance: 880"
+                                android:id="@+id/tv_qSkillRange"
+                                android:padding="3dp"
+                                android:textStyle="italic" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Coste:"
-                                    android:id="@+id/tv_qSkillCost"
-                                    android:textStyle="bold"
-                                    android:padding="3dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Alcance:"
-                                    android:id="@+id/tv_qSkillRange"
-                                    android:padding="3dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="65/70/75/80/85 de maná"
-                                    android:id="@+id/tv_qSkillCostValue"
-                                    android:padding="3dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="880"
-                                    android:id="@+id/tv_qSkillRangeValue"
-                                    android:padding="3dp" />
-                            </LinearLayout>
-                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -211,55 +180,24 @@
                                 android:padding="6dp"
                                 android:textColor="@color/colorAccent"
                                 android:textSize="17dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Coste: 65/70/75/80/85 de maná"
+                                android:id="@+id/tv_wSkillCost"
+                                android:padding="3dp"
+                                android:textStyle="italic" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alcance: 880"
+                                android:id="@+id/tv_wSkillRange"
+                                android:padding="3dp"
+                                android:textStyle="italic" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Coste:"
-                                    android:id="@+id/tv_wSkillCost"
-                                    android:textStyle="bold"
-                                    android:padding="3dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Alcance:"
-                                    android:id="@+id/tv_wSkillRange"
-                                    android:padding="3dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="65/70/75/80/85 de maná"
-                                    android:id="@+id/tv_wSkillCostValue"
-                                    android:padding="3dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="880"
-                                    android:id="@+id/tv_wSkillRangeValue"
-                                    android:padding="3dp" />
-                            </LinearLayout>
-                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -320,55 +258,24 @@
                                 android:padding="6dp"
                                 android:textColor="@color/colorAccent"
                                 android:textSize="17dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Coste:"
+                                android:id="@+id/tv_eSkillCost"
+                                android:padding="3dp"
+                                android:textStyle="italic" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alcance:"
+                                android:id="@+id/tv_eSkillRange"
+                                android:padding="3dp"
+                                android:textStyle="italic" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Coste:"
-                                    android:id="@+id/tv_eSkillCost"
-                                    android:textStyle="bold"
-                                    android:padding="3dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Alcance:"
-                                    android:id="@+id/tv_eSkillRange"
-                                    android:padding="3dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="65/70/75/80/85 de maná"
-                                    android:id="@+id/tv_eSkillCostValue"
-                                    android:padding="3dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="880"
-                                    android:id="@+id/tv_eSkillRangeValue"
-                                    android:padding="3dp" />
-                            </LinearLayout>
-                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -429,55 +336,24 @@
                                 android:padding="6dp"
                                 android:textColor="@color/colorAccent"
                                 android:textSize="17dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Coste:"
+                                android:id="@+id/tv_rSkillCost"
+                                android:padding="3dp"
+                                android:textStyle="italic" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alcance:"
+                                android:id="@+id/tv_rSkillRange"
+                                android:padding="3dp"
+                                android:textStyle="italic" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Coste:"
-                                    android:id="@+id/tv_rSkillCost"
-                                    android:textStyle="bold"
-                                    android:padding="3dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Alcance:"
-                                    android:id="@+id/tv_rSkillRange"
-                                    android:padding="3dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="65/70/75/80/85 de maná"
-                                    android:id="@+id/tv_rSkillCostValue"
-                                    android:padding="3dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="880"
-                                    android:id="@+id/tv_rSkillRangeValue"
-                                    android:padding="3dp" />
-                            </LinearLayout>
-                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
