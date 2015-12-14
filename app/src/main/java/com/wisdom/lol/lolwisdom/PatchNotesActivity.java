@@ -94,18 +94,17 @@ public class PatchNotesActivity extends AppCompatActivity {
             Document doc;
             String region = params[0];
             String idioma = params[1];
-            String urlRotationsList = "http://"+region+".leagueoflegends.com/"+idioma+"/news/game-updates/patch/";
+            String urlRotationsList = "http://"+"euw"+".leagueoflegends.com/"+"es"+"/news/game-updates/patch/";
 
             try
             {
                 doc = Jsoup.connect(urlRotationsList).get();
 
-                Element lastPatchNotes = doc.select("a[href^=/"+idioma+"/news/game-updates/patch/]").first();
-                //Element lastPatchNotes = doc.select("h4").first().select("a").first();
+                Element lastPatchNotes = doc.select("h4").first().select("a").first();
 
                 String relativeUrl = lastPatchNotes.attr("href");
 
-                urlLastPatchNotes = "http://"+region+".leagueoflegends.com"+relativeUrl;
+                urlLastPatchNotes = "http://"+"euw"+".leagueoflegends.com"+relativeUrl;
                 Log.e("URL", "URL Patch Notes: "+urlLastPatchNotes);
 
                 return true;
